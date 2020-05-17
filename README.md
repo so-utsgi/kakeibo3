@@ -1,24 +1,41 @@
 # README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|name|string|null: false|
+### Association
+- has_many :incomes
+- has_many :expense
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## incomesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|price|integer||
+|date|integer||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :users
+- belongs_to :category
 
-Things you may want to cover:
+## expenseテーブル
+|Column|Type|Options|
+|------|----|-------|
+|price|integer||
+|date|integer||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :users
+- belongs_to :category
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|income_id|integer|null: false, foreign_key: true|
+|expens_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :incomes
+- has_many :expense
