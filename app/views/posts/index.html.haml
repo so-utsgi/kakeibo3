@@ -1,0 +1,35 @@
+.header
+  .header__left
+    kakeibo
+  .header__right
+    宇津木
+.contents
+  .contents__form
+    .contents__form__income
+      = form_for @post, remote: true do |f|
+        .field
+          .field__input
+            = f.label :値段
+            = f.text_field :price,required: true,autofocus: true,placeholder: '英数字',class:'form-box'
+            %span.registration
+              必須
+        .field
+          .field__input
+            = f.label :日付
+            = f.text_field :date,required: true,autofocus: true,placeholder: '英数字',class:'form-box'
+            %span.registration
+              必須
+        .field
+          .field__input
+            = f.label :カテゴリー
+            = f.text_field :category,required: true,autofocus: true,placeholder: '英数字',class:'form-box'
+            %span.registration
+              必須
+        .actions
+          = f.submit "登録", class:'btn'
+.footer
+  .footer__income
+    収入合計
+  .footer__expense
+    支出合計
+
