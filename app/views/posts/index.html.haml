@@ -2,10 +2,18 @@
   .header__left
     kakeibo
   .header__right
-    宇津木
+    - if user_signed_in?
+      = link_to "新規投稿", "#", class: "header__right--btn"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+      = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+
+
 .contents
   .contents__form
     .contents__form__income
+      収入
       = form_for @post, remote: true do |f|
         .field
           .field__input
@@ -27,9 +35,10 @@
               必須
         .actions
           = f.submit "登録", class:'btn'
+          
 .footer
   .footer__income
     収入合計
-  .footer__expense
-    支出合計
-
+    .footer__income__date
+      - @posts.each do |post|
+        = post.price

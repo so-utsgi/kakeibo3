@@ -14,12 +14,15 @@
 
   }
   &__right{
-    color: white;
     padding: 25px;
     height: 40px;
-    width: 150px;
-    font-size: 40px;
-
+    width: 400px;
+    &--btn{
+      padding: 25px;
+      color: white;
+      font-size: 30px;
+      text-decoration: none;
+    }
   }
 }
 
@@ -36,6 +39,9 @@
       height: 200px;
       width: 500px;
       margin: 0 auto;
+      text-align: center;
+      font-size: 20px;
+      padding: 25px;
       .field__input{
         padding: 20px;
         font-size: 20px;
@@ -43,9 +49,9 @@
         &__form__box{
         } 
       }
-      .actions{
-        padding: 10px;
-        &__submit{
+      .action{
+        padding: 20px;
+        &__btn{
           background-color: skyblue;
         }
       }
